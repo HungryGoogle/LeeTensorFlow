@@ -16,7 +16,7 @@ i1 = 5 % 3
 print("Result : 5 %% 3 = %d" % (i1))  # result = 2
 
 i2 = 11 // 2
-print("Result : 11 // 2 = %d" % i2)     # 获得商
+print("Result : 11 // 2 = %d" % i2)     # 获得商 = 5,  如果整除，就是最后的值
 
 i2 = 2 ** 3
 print("Result : 2 * 2 * 2 = %d" % i2) # result = 8

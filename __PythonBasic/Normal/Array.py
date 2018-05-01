@@ -19,5 +19,5 @@ print(a.count(3))
 
 # remove all 3 in array
 for i in range(a.count(3)):
-    a.remove(3)  # 删除a列表里面所有5。
+    a.remove(3)  # 删除a列表里面所有3。
 print(a)
