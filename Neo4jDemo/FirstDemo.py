@@ -1,17 +1,40 @@
 from py2neo import Graph, Node, Relationship, NodeSelector
 
-test_graph = Graph(
+graph = Graph(
     "http://localhost:7474",
     username="neo4j",
     password="123456"
 )
 
-test_graph.delete_all()
+graph.delete_all()
 
 a = Node('Person', name='Alice')
 b = Node('Person', name='Bob')
+a['age'] = 20
+b['age'] = 21
+
 r = Relationship(a, 'KNOWS', b)
 print(a, b, r)
+
+# node = graph.find_one(label='Person')
+# print(node)
+# relationship = graph.match_one(rel_type='KNOWS')
+# print(relationship)
+
+d = {'name': 'Alice', 'age' : 20}
+
+# # quote string values
+# d = {k:"'{}'".format(v) if isinstance(v, basestring) else v
+#                      for k,v in d.items()}
+
+cond = ' AND '.join("p.{}={}".format(prop, value) for prop, value in d.items())
+
+query = "MATCH (p:Person) {condition} RETURN p"
+query = query.format(condition=cond)
+# "MATCH (p:Person) p.age=22 AND p.name='Alice' RETURN p"
+results = graph.cypher.execute(query)
+print(results)
+
 
 a['age'] = 20
 b['age'] = 21

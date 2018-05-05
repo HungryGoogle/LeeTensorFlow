@@ -7,3 +7,7 @@ node = graph.find_one(label='Person')
 print(node)
 relationship = graph.match_one(rel_type='KNOWS')
 print(relationship)
+#
+# MATCH ()-[r]->n
+# WHERE id(n)=****
+# RETURN count（r）
