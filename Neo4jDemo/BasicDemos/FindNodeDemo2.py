@@ -12,12 +12,20 @@ graph.delete_all()
 a = Node('Person', name='Alice', age=21, location='广州')
 b = Node('Person', name='Bob', age=22, location='上海')
 c = Node('Person', name='Mike', age=21, location='北京')
+
+a.setdefault('time','---2018---')
+a['time1'] = '---2018_1---'
+print(a)
+
 r1 = Relationship(a, 'KNOWS', b)
 r2 = Relationship(b, 'KNOWS', c)
 r2.setdefault("time","198708")
 graph.create(a)
 graph.create(r1)
 graph.create(r2)
+
+# graph.delete(a)
+
 
 print("------------> r2 ------------>")
 print(r2)

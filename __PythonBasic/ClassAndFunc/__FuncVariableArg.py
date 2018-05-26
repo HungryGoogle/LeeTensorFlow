@@ -22,7 +22,7 @@ def total(a = 5, *numbers, **phonebook):
     # 遍历字典中的所有项目
     print("\nphonebook -------- phonebook = ", phonebook);
     for first_part, second_part in phonebook.items():
-        # print(first_part, second_part)
+        print(first_part, second_part)
         # print ('Optional argument %s = %s' % (first_part, second_part))
         print('hello')
 
@@ -53,13 +53,15 @@ print(total(10, 1, 2, 3, Jack=1123, John=2231, Inge=1560))
 # ### Example_5 #################################################
 # 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字 参数和关键字参数
 def f1(a, b, c=0, *args, **kw):
-    print("\n--------------------------------------------------------");
+    print("\nf1 --------------------------------------------------------");
     print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
     print("args.__len__()",args.__len__())
     print("kw.__len__()",kw.__len__())
 
 def f2(a, b, c=0, *, d, **kw):
+    print("\nf2 --------------------------------------------------------");
     print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
 
 print("\n--------------------------------------------------------");
 f1(1, 2)
@@ -68,3 +70,8 @@ f1(1, 2, 3, 'a', 'b')
 f1(1, 2, 3, 'a', 'b', x=99, Y=99, Z=99)
 
 f2(1, 2, d=99, ext=None)
+
+print("\nkey value --------------------------------------------------------");
+kw = {'Z': 99, 'x': 99, 'Y': 99}
+print('kw =', kw)
+print('kw.items =', kw.items())

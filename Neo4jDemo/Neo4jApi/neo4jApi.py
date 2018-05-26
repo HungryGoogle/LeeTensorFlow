@@ -1,4 +1,13 @@
+from py2neo import Node, Relationship
+from py2neo import Graph
 
+global graph
+
+def init():
+    global graph
+    graph = Graph("http://localhost:7474", username="neo4j", password="123456")
+def clearAll():
+    graph.delete_all()
 
 def addNode(tag, **keyValues):
     """
@@ -10,6 +19,13 @@ def addNode(tag, **keyValues):
     eg.
         addNode("Person", name="Jim")
     """
+    # print(tag)
+    # print(keyValues)
+    tempNode = Node(tag)
+    for first_part, second_part in keyValues.items():
+        tempNode[first_part] = second_part
+    graph.create(tempNode)
+    return tempNode
     pass
 
 
@@ -24,6 +40,25 @@ def addRelationship(nodeA, relationship, nodeB, **properties):
     eg.
         (bob)-[:KNOWS {time:"198708"}]->(mike)
     """
+
+    relationship = Relationship(nodeA, relationship, nodeB)
+    for first_part, second_part in properties.items():
+        relationship[first_part] = second_part
+    graph.create(relationship)
+    return relationship
+    pass
+
+def delRefence(relationship):
+    """
+    :param relationship: 关系 Relationship
+    :return: 插入到图数据库结果
+              0 成功
+              1 失败
+    eg.
+        (bob)-[:KNOWS {time:"198708"}]->(mike)
+        person.knows.remove(target)
+    """
+    graph.delete(relationship)
     pass
 
 def delRefence(nodeA, relationship, nodeB):
@@ -38,6 +73,7 @@ def delRefence(nodeA, relationship, nodeB):
         (bob)-[:KNOWS {time:"198708"}]->(mike)
         person.knows.remove(target)
     """
+
     pass
 
 def selectBeginNode(relationship, nodeB):
@@ -52,6 +88,8 @@ def selectBeginNode(relationship, nodeB):
         selectEndNode(bob, r)
         (bob)-[:KNOWS {time:"198708"}]->(mike)
     """
+    selector = NodeSelector(graph)
+
     pass
 
 def selectEndNode(nodeA, relationship):
