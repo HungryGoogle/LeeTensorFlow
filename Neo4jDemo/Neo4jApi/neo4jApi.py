@@ -1,4 +1,4 @@
-from py2neo import Node, Relationship
+from py2neo import Node, Relationship, NodeSelector
 from py2neo import Graph
 
 global graph
@@ -88,7 +88,10 @@ def selectBeginNode(relationship, nodeB):
         selectEndNode(bob, r)
         (bob)-[:KNOWS {time:"198708"}]->(mike)
     """
-    selector = NodeSelector(graph)
+    list = []
+    for rel in graph.match(rel_type=relationship, end_node=nodeB):
+        list.append(rel.start_node())
+    return list;
 
     pass
 

@@ -71,6 +71,9 @@ print(relationship)
 for rel in graph.match(start_node=a, rel_type="KNOWS"):
     print(rel.end_node()["name"])
 
+for rel in graph.match(rel_type="KNOWS", end_node=b):
+    print('--------> start_node', rel.start_node()["name"])
+
 for rel in graph.match(start_node=a, end_node=b):
     print(rel)
 
