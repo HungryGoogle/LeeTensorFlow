@@ -9,12 +9,16 @@ if __name__ == '__main__':
     nodeB = neo4jApi.addNode('person', name='bob')
     relationship = neo4jApi.addRelationship(nodeA, 'knows', nodeB, time='20180505')
 
-    listBeginsNodes = neo4jApi.selectBeginNode('knows', nodeB)
+    listBeginsNodes1 = neo4jApi.selectBeginNode('knows', nodeB)
+    listBeginsNodes2 = neo4jApi.selectEndNode(nodeA,'knows')
+
+
 
     print('nodeA : ', nodeA)
     print('nodeB : ', nodeB)
     print('relationship : ', relationship)
-    print('listBeginsNodes : ', listBeginsNodes)
+    print('listBeginsNodes1 : ', listBeginsNodes1)
+    print('listBeginsNodes2 : ', listBeginsNodes2)
 
 
 

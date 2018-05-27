@@ -106,6 +106,11 @@ def selectEndNode(nodeA, relationship):
     eg.
         (bob)-[:KNOWS {time:"198708"}]->(mike)
     """
+    list = []
+    for rel in graph.match(start_node=nodeA, rel_type=relationship):
+        list.append(rel.end_node())
+    return list;
+
     pass
 
 def selectRelationship(nodeA, nodeB):
