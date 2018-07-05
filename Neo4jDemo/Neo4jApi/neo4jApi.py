@@ -125,3 +125,17 @@ def selectRelationship(nodeA, nodeB):
         (bob)-[:KNOWS {time:"198708"}]->(mike)
     """
     pass
+
+def selectRelationship(nodeA, nodeB):
+    """
+    :param nodeA: 节点A
+    :param nodeB: 节点B
+    :param
+    :return: 插入到图数据库结果
+              成功 relationship: 关系
+              失败 null
+    eg.
+        (bob)-[:KNOWS {time:"198708"}]->(mike)
+    """
+    graph.run('')
+    pass

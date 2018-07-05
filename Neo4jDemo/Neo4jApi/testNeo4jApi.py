@@ -7,7 +7,9 @@ if __name__ == '__main__':
     neo4jApi.clearAll()
     nodeA = neo4jApi.addNode('person', name='alice')
     nodeB = neo4jApi.addNode('person', name='bob')
+    nodeC = neo4jApi.addNode('person', name='ccc')
     relationship = neo4jApi.addRelationship(nodeA, 'knows', nodeB, time='20180505')
+    relationship = neo4jApi.addRelationship(nodeB, 'knows', nodeC, time='20180606')
 
     listBeginsNodes1 = neo4jApi.selectBeginNode('knows', nodeB)
     listBeginsNodes2 = neo4jApi.selectEndNode(nodeA,'knows')
