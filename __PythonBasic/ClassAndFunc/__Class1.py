@@ -8,7 +8,7 @@ FooParent().bar("Hello, World.")
 class FooChild1(FooParent):
     def bar(self, message):
         print("Child  method: " + message)
-FooChild1().bar("Hello, World.")
+FooChild1().bar("Hello, child 1.")
 
 # Method
 class FooChild2(FooParent):

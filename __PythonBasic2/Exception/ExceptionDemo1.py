@@ -6,7 +6,7 @@ try:
     print('os.remove file')
     os.remove('autojump.png')
 except Exception:
-    print('Exception 1')
+    print('---------------> Exception 1')
     pass
 
 # print('Exception 2')
