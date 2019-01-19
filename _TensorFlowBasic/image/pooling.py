@@ -5,9 +5,13 @@ import tensorflow as tf
 from PIL import Image
 import numpy
 
+# jpg = tf.read_file("D:/vcprojects/images/yuan_test.png")
 img = Image.open('pic/lena512_512.jpg')
 img_ndarray = numpy.asarray(img, dtype='float32')
 print(img_ndarray.shape)
+
+print(img_ndarray.shape[2])
+
 img_ndarray=img_ndarray[:,:,0]
 plt.figure()
 plt.subplot(221)
