@@ -18,6 +18,7 @@ w=[[-1.0,-1.0,-1.0],
    [-1.0,-1.0,-1.0]]
 
 with tf.Session() as sess:
+    # -------> param 512 modify
     img_ndarray=tf.reshape(img_ndarray,[1,512,512,1])
     w=tf.reshape(w,[3,3,1,1])
     img_cov=tf.nn.conv2d(img_ndarray, w, strides=[1, 1, 1, 1], padding='SAME')
