@@ -12,7 +12,10 @@ print(img_ndarray.shape)
 
 print(img_ndarray.shape[2])
 
-img_ndarray=img_ndarray[:,,0]
+# for i in range(img_ndarray.shape[0] - 1):
+#     img_ndarray[i] = 0
+
+img_ndarray=img_ndarray[:,:,0]
 plt.figure()
 plt.subplot(221)
 plt.imshow(img_ndarray)
@@ -23,6 +26,9 @@ w=[[-1.0,-1.0,-1.0],
 
 with tf.Session() as sess:
     # -------> param 512 modify
+    # for i in range(512)
+    #     img_ndarray = img_ndarray[]
+
     img_ndarray=tf.reshape(img_ndarray,[1,512,512,1])
     w=tf.reshape(w,[3,3,1,1])
     img_cov=tf.nn.conv2d(img_ndarray, w, strides=[1, 1, 1, 1], padding='SAME')
