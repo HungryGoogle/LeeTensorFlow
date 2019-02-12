@@ -32,3 +32,7 @@ def export_to_file(path_to_model, output_file):
 
 if __name__ == "__main__":
     main()
+
+# 之后就可以用java处理了
+    # Word2vec的bin文件的java处理
+    # https: // blog.csdn.net / zcz_822 / article / details / 52711818
